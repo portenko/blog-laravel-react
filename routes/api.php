@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ArticleController;
+use App\Http\Controllers\Api\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::resource('article', ArticleController::class);
+Route::resource('tag', TagController::class);
+
+Route::middleware('auth:api')->group(function () {
+//    Route::get('/user', function (Request $request) {
+//        return $request->user();
+//    });
+
+});
+
+Route::fallback(function(){
+    return response()->json([
+        'status' => 404,
+        'message' => 'Data not found'
+    ], 404);
 });
