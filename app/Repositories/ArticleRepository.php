@@ -66,11 +66,11 @@ class ArticleRepository
     }
 
     /**
-    * @param $id
-    * @return mixed
-    */
-    public function find($id)
+     * @param $slug
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|null
+     */
+    public function findBySlug($slug)
     {
-        return $this->model->where('id', $id)->first();
+        return Article::query()->where('slug', $slug)->first();
     }
 }
