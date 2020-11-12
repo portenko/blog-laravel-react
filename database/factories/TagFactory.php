@@ -22,7 +22,7 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(20),
+            'title' => rtrim($this->faker->unique()->text(rand(7,15)), '.'),
         ];
     }
 }

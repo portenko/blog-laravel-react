@@ -22,9 +22,9 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(20),
-            'body' => $this->faker->text,
-            'created_at' => now(),
+            'name' => rtrim($this->faker->text(rand(25,60)), '.'),
+            'body' => $this->faker->text(1000),
+            'created_at' => $this->faker->dateTimeBetween('-10 days'),
             'updated_at' => now(),
         ];
     }
