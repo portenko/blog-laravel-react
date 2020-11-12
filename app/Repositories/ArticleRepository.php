@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Article;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class ArticleRepository
@@ -27,11 +28,11 @@ class ArticleRepository
     }
 
     /**
-      * @return mixed
-      */
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function all()
     {
-        return $this->model
+        return Article::query()
              ->orderBy($this->sortBy, $this->sortOrder)
              ->get();
     }
