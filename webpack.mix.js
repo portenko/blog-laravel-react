@@ -13,3 +13,5 @@ const mix = require('laravel-mix');
 
 // Module not found: Error: Can't resolve 'fs' in 'node_modules\*'
 mix.webpackConfig({ node: { fs: 'empty' }});
+
+mix.react('resources/js/app.js', 'public/js');
