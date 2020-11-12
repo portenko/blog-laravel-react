@@ -1,6 +1,6 @@
 ## Blog
 
-React.js + Laravel + SQLite
+React + Laravel + SQLite
 
 ###### Instructions for building / running the application:
 
