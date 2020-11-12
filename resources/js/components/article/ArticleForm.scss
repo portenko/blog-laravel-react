@@ -1,0 +1,44 @@
+.article-form {
+  label {
+    font-style: normal;
+    width: 100%;
+    max-width: 681px;
+    span {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 40px;
+      color: #21243D;
+    }
+  }
+  input, textarea {
+    background: #FFFFFF;
+    border: 2px solid #E0E0E0;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  textarea {
+    resize: none;
+  }
+  .form-group {
+      margin-bottom: 0;
+  }
+  .form-control {
+  }
+  .btn {
+    background: #FF7999;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 28px;
+    color: #FFFFFF;
+    min-width: 157px;
+    min-height: 49px;
+    margin-top: 20px;
+  }
+  .invalid {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+}

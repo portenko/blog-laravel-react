@@ -1,0 +1,10 @@
+.navbar {
+  margin-bottom: 20px;
+  background-color: #ff7999;
+  a {
+    color: #fff;
+    &:hover {
+        text-decoration: underline;
+    }
+  }
+}

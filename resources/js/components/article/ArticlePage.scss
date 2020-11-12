@@ -1,0 +1,30 @@
+.app-header h1 {
+
+}
+.article-page {
+  .ap-sub-info
+  {
+    font-size: 15px;
+    .ap-date
+    {
+      line-height: 29px;
+      color: #21243D;
+      padding-right: 20px;
+    }
+    .ap-tags
+    {
+      line-height: 29px;
+      color: #8695A4;
+      padding-left: 20px;
+    }
+    @media (max-width: 360px) {
+      margin: 0;
+    }
+  }
+  .ap-body {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 35px;
+    display: block;
+  }
+}
