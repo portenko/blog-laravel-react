@@ -51,18 +51,20 @@ class ArticleService
     {
         $data = $this->articleRepository->create($input);
         if($data){
+            $tagTitles = $input['tags'];
+            $this->tagRepository->createAllForArticle($tagTitles, $data->id);
             $data->tags = $this->tagRepository->allByArticleId($data->id);
         }
         return new ArticleResource($data);
     }
 
     /**
-     * @param $id
+     * @param $slug
      * @return ArticleResource
      */
-    public function find($id)
+    public function findBySlug($slug)
     {
-        $data = $this->articleRepository->find($id);
+        $data = $this->articleRepository->findBySlug($slug);
         if($data){
            $data->tags = $this->tagRepository->allByArticleId($data->id);
         }
