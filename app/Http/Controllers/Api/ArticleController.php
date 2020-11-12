@@ -49,13 +49,13 @@ class ArticleController extends Controller
     }
 
     /**
-     * @param $id
+     * @param $slug
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show($slug)
     {
         try {
-            $data = $this->service->find($id);
+            $data = $this->service->findBySlug($slug);
             if(is_null($data)){
                 throw new NotFoundHttpException('Data not found');
             }
