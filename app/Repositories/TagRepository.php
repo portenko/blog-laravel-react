@@ -40,7 +40,7 @@ class TagRepository
     public function allByArticleId($id)
     {
         return DB::table('tags as t')
-            ->join('article_tag as a', 'a.tag_id', '=', 't.id')
+            ->leftJoin('article_tag as a', 'a.tag_id', '=', 't.id')
             ->where('a.article_id', '=', $id)
             ->select('t.*')
             ->get();
