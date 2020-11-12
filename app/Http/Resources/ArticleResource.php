@@ -19,7 +19,7 @@ class ArticleResource extends JsonResource
             'name' => $this->name,
             'body' => $this->body,
             'slug' => $this->slug,
-            'created_at' => $this->created_at->format('d M Y'),
+            'created_at' => $this->created_at->format('d.m.Y'),
             'tags' => TagResource::collection($this->tags)
         ];
     }
