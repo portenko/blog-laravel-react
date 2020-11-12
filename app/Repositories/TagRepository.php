@@ -30,7 +30,7 @@ class TagRepository
       */
     public function all()
     {
-        return $this->model->get();
+        return Tag::query()->get();
     }
 
     /**
