@@ -43,9 +43,12 @@ class ArticleRepository
     */
     public function paginated($paginate)
     {
-         return $this
-            ->model
-            ->orderBy($this->sortBy, $this->sortOrder)
+        return DB::table('articles as t')
+            ->leftJoin('article_tag as a', 'a.article_id', '=', 't.id')
+            ->leftJoin('tags as g', 'a.tag_id', '=', 'g.id')
+            ->select(DB::raw('t.id, t.name, t.body, t.slug, strftime("%d.%m.%Y", t.created_at) as created_at, group_concat(g.title, ", ") as tags'))
+            ->groupBy('t.id')
+            ->orderBy('t.created_at', 'desc')
             ->paginate($paginate);
     }
 
