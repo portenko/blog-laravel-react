@@ -29,7 +29,8 @@ class ArticleRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'body' => 'required|string'
+            'body' => 'required|string',
+            'tags' => 'array'
         ];
     }
 }
