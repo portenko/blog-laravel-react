@@ -47,24 +47,47 @@ class TagRepository
     }
 
     /**
-    * @param $input
-    * @return mixed
-    */
-    public function create($input)
+     * @param $title
+     * @return Tag|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object
+     */
+    private function prepare($title)
     {
-        $model = $this->model;
-        $model->fill($input);
-        $model->save();
-
+        $model = $this->findByTitle($title);
+        if(!$model){
+            $model = new Tag(['title' => $title]);
+        }
         return $model;
     }
 
     /**
-    * @param $id
-    * @return mixed
-    */
+     * @param $titles
+     * @param $article_id
+     */
+    public function createAllForArticle($titles, $article_id)
+    {
+        foreach($titles as $title){
+            $model = $this->prepare($title);
+            if($model->save()){
+                DB::insert('insert into article_tag (article_id, tag_id) values (?, ?)', [$article_id, $model->id]);
+            }
+        }
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function find($id)
     {
-        return $this->model->where('id', $id)->first();
+        return Tag::query()->where('id', $id)->first();
+    }
+
+    /**
+     * @param $title
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|null
+     */
+    private function findByTitle($title)
+    {
+        return Tag::query()->where('title', $title)->first();
     }
 }
