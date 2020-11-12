@@ -25,7 +25,7 @@ php artisan serve
 ```
 
 By default, the application will run on:
-http://127.0.0.1/ 
+http://127.0.0.1:8000
 
 If you want to launch the application with a different IP and PORT, before launching, you will need to change the value 
 of the MIX_API_URL parameter in the .env file and rebuild the react application part.
