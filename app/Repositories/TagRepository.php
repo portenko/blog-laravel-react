@@ -12,20 +12,6 @@ use Illuminate\Support\Facades\DB;
 class TagRepository
 {
     /**
-     * @var Tag
-     */
-    private $model;
-
-    /**
-     * TagRepository constructor.
-     * @param Tag $tag
-     */
-    public function __construct(Tag $tag)
-    {
-        $this->model = $tag;
-    }
-
-    /**
       * @return mixed
       */
     public function all()
